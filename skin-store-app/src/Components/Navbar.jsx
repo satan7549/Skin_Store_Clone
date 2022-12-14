@@ -21,7 +21,13 @@ export const Navbar = () => {
     // <div className="nav"  >
     <>
       {/* <Button ref={btnRef}  color="teal" onClick={onOpen}> */}
-      <FontAwesomeIcon className="headerIcons" ref={btnRef}  color="teal" onClick={onOpen} icon={faBars} />
+      <FontAwesomeIcon
+        className="headerIcons"
+        ref={btnRef}
+        color="teal"
+        onClick={onOpen}
+        icon={faBars}
+      />
       {/* open
       </Button> */}
       <Drawer
@@ -31,11 +37,10 @@ export const Navbar = () => {
         finalFocusRef={btnRef}
         size="lg"
         border="1px solid red"
-        
       >
         <DrawerOverlay />
-        <DrawerContent  >
-          <DrawerCloseButton  />
+        <DrawerContent>
+          <DrawerCloseButton />
           <DrawerHeader>Create your account</DrawerHeader>
 
           <DrawerBody>
@@ -43,14 +48,14 @@ export const Navbar = () => {
           </DrawerBody>
         </DrawerContent>
       </Drawer>
-      
+
       {/* <Link to="/">
         <FontAwesomeIcon className="headerIcons" icon={faBars} />
       </Link> */}
       {/* <Link to="/">search</Link>
       <Link to="/">Home</Link>
       <Link to="/">Home</Link> */}
-      </>
+    </>
     // </div>
   );
 };
