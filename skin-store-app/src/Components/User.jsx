@@ -1,19 +1,19 @@
-import React from "react";
-import {
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  Button,
-  ButtonGroup,
-  scaleFadeConfig,
-} from "@chakra-ui/react";
+import React, { useContext } from "react";
+import { Menu, MenuButton, MenuList, MenuItem, Button } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
-import { ChevronDownIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Context/AuthContextProvider";
+import { logoutSucessAction } from "../Context/Action";
 
 export const User = () => {
+  const { state, dispatch } = useContext(AuthContext);
+
+  const Logout=()=>{    
+    dispatch(logoutSucessAction())    
+  }
+
+
   return (
     <>
       <Menu>
@@ -21,7 +21,8 @@ export const User = () => {
           <FontAwesomeIcon fontSize="2xl" color="black" icon={faUser} />
         </MenuButton>
         <MenuList borderRadius="2px">
-          <Link to="/login">
+          {state.isAuth ?
+          (
             <MenuItem>
               <Button
                 width="100%"
@@ -30,11 +31,29 @@ export const User = () => {
                 colorScheme="black"
                 _hover={{ bg: "black", color: "white" }}
                 variant="outline"
+                onClick={Logout}
               >
-                Login
+                LOG OUT
               </Button>
             </MenuItem>
-          </Link>
+          ) :          
+          (
+            <Link to="/login">
+              <MenuItem>
+                <Button
+                  width="100%"
+                  p="-1"
+                  borderRadius="none"
+                  colorScheme="black"
+                  _hover={{ bg: "black", color: "white" }}
+                  variant="outline"
+                >
+                  LOG IN
+                </Button>
+              </MenuItem>
+            </Link>
+          ) }
+
           <MenuItem>
             <Button
               width="100%"
