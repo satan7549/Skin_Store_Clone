@@ -3,24 +3,20 @@ import { SearchIcon } from "@chakra-ui/icons";
 import {
   Drawer,
   DrawerBody,
-  DrawerFooter,
-  DrawerHeader,
   DrawerOverlay,
   DrawerContent,
-  DrawerCloseButton,
   useDisclosure,
   Input,
   IconButton,
   InputGroup,
   InputRightElement,
-  CloseButton,
 } from "@chakra-ui/react";
 import { useState } from "react";
 
 export const Searchbar = () => {
     const [text,setText]=useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = React.useRef();
+  // const btnRef = React.useRef();
   return (
     <>
       <SearchIcon fontSize="xl"
