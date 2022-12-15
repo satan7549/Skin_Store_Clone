@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { SearchIcon } from "@chakra-ui/icons";
 import {
   Drawer,
@@ -12,11 +12,15 @@ import {
   InputRightElement,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import { fetchDataBySearch } from "../data/fetchData";
 
 export const Searchbar = () => {
-    const [text,setText]=useState("");
+    const [query,setQuery]=useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
   // const btnRef = React.useRef();
+  useEffect(()=>{
+   fetchDataBySearch(query);
+  },[query])
   return (
     <>
       <SearchIcon fontSize="xl"
@@ -28,13 +32,13 @@ export const Searchbar = () => {
           {/* <DrawerHeader borderBottomWidth='1px'>Basic Drawer</DrawerHeader> */}
           <DrawerBody>
             <InputGroup>
-              <Input type="search" onChange={(e)=>setText(e.target.value)} placeholder="Search for a product or brand..." />
+              <Input type="search" onChange={(e)=>setQuery(e.target.value)} placeholder="Search for a product or brand..." />
               <InputRightElement
                 children={
                   <IconButton
                     aria-label="Search database"
                     bg="none"
-                    onClick={()=>console.log(text)}
+                    onClick={()=>console.log(query)}
                     icon={<SearchIcon />}
                   />
                 }
