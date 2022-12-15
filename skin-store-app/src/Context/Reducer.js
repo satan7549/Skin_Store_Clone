@@ -24,6 +24,14 @@ const reducer =(state , action)=>{
                 token: null
             }
         }
+        case "LOGOUT_SUCESS":{
+            return{
+                isLoading:false,
+                isAuth:false,
+                isError:false,
+                token: null
+            }
+        }
         default : {
             return state;
         }
