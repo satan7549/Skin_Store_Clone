@@ -1,9 +1,10 @@
 .nav{
-    color: blue;
-    display: flex;
-    flex-direction: row;
+    color: black;
     font-size: large;
     justify-content: space-between;
-    padding: 10px 20px 10px 20px ;
-    background-color: aqua;
+    padding: 10px;
+    gap: "10px";
+    align-items: center;
+    background-color:white;
+    border-bottom: 1px solid black;
 }

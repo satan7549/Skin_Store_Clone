@@ -23,11 +23,12 @@ export const Searchbar = () => {
   const btnRef = React.useRef();
   return (
     <>
-      <SearchIcon color="black" onClick={onOpen} />
+      <SearchIcon fontSize="xl"
+        color="black" onClick={onOpen} />
 
       <Drawer placement="top" onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay />
-        <DrawerContent mt={20} p="10px" >
+        <DrawerContent mt="50px" p="10px" >
           {/* <DrawerHeader borderBottomWidth='1px'>Basic Drawer</DrawerHeader> */}
           <DrawerBody>
             <InputGroup>
