@@ -163,7 +163,7 @@ export const Login = () => {
             mt="10px"
             mb="20px"
           >
-            NEW USER
+            New User
           </Heading>
           <Center>
             <Button
