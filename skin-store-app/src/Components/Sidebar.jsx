@@ -3,12 +3,7 @@ import "../style/navbar.css";
 import "../style/sidebar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faHouse } from "@fortawesome/free-solid-svg-icons";
-import {
-  Box,
-  VStack,
-  useDisclosure,
-  Text,
-} from "@chakra-ui/react";
+import { Box, VStack, useDisclosure, Text } from "@chakra-ui/react";
 import {
   Drawer,
   DrawerBody,
@@ -37,7 +32,6 @@ export const Sidebar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
 
-  
   return (
     <>
       <HamburgerIcon
@@ -57,8 +51,8 @@ export const Sidebar = () => {
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader>
-            <Link to="/" >
-            <FontAwesomeIcon onClick={onClose} icon={faHouse} />
+            <Link to="/">
+              <FontAwesomeIcon onClick={onClose} icon={faHouse} />
             </Link>
           </DrawerHeader>
           <DrawerBody>
@@ -75,6 +69,8 @@ export const Sidebar = () => {
                     borderBottom="2px solid black"
                     px="10px"
                     p="10px"
+                    onClick={() => alert(`${ele}`)}
+                    _hover={{ cursor: "pointer" }}
                   >
                     <Text fontSize="lg" fontWeight="bold">
                       {ele}

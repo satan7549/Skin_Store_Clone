@@ -6,6 +6,7 @@ import { Box, Flex } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faShoppingBasket,
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { User } from "./User";
 
@@ -21,7 +22,7 @@ export const Navbar = () => {
       </Box>
       <Box display="flex" gap={5} justifyContent="space-around">
         <User />
-        <Link to="/cart">
+       <Link to="/cart">
           <FontAwesomeIcon
             fontSize="2xl"
             color="black"
