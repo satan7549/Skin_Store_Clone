@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react'
+import { Carasoul } from '../Components/Carasoul'
 import { fetchDataBySearch } from '../data/fetchData'
 
 export const Home = () => {
@@ -10,6 +11,6 @@ export const Home = () => {
 // console.log(data);
 
   return (
-    <div>Home</div>
+    <Carasoul />
   )
 }

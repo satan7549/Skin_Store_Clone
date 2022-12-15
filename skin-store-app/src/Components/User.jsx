@@ -1,32 +1,61 @@
-import React from 'react';
+import React from "react";
 import {
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
-} from '@chakra-ui/react'
+  Button,
+  ButtonGroup,
+  scaleFadeConfig,
+} from "@chakra-ui/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { ChevronDownIcon } from "@chakra-ui/icons";
+import { Link } from "react-router-dom";
 
 export const User = () => {
-
-    
   return (
     <>
-    <Menu>
-  <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-    Actions
-  </MenuButton>
-  <MenuList>
-    <MenuItem>Download</MenuItem>
-    <MenuItem>Create a Copy</MenuItem>
-    <MenuItem>Mark as Draft</MenuItem>
-    <MenuItem>Delete</MenuItem>
-    <MenuItem>Attend a Workshop</MenuItem>
-  </MenuList>
-</Menu>
+      <Menu>
+        <MenuButton>
+          <FontAwesomeIcon fontSize="2xl" color="black" icon={faUser} />
+        </MenuButton>
+        <MenuList borderRadius="2px">
+          <Link to="/login">
+            <MenuItem>
+              <Button
+                width="100%"
+                p="-1"
+                borderRadius="none"
+                colorScheme="black"
+                _hover={{ bg: "black", color: "white" }}
+                variant="outline"
+              >
+                Login
+              </Button>
+            </MenuItem>
+          </Link>
+          <MenuItem>
+            <Button
+              width="100%"
+              p="-1"
+              borderRadius="none"
+              colorScheme="black"
+              _hover={{ bg: "black", color: "white" }}
+              variant="outline"
+            >
+              Register
+            </Button>
+          </MenuItem>
+          <MenuItem _hover={{ backgroundColor: "gray.100" }}>Wishlist</MenuItem>
+          <MenuItem _hover={{ backgroundColor: "gray.100" }}>
+            Your Orders
+          </MenuItem>
+          <MenuItem _hover={{ backgroundColor: "gray.100" }}>
+            Your Refferals
+          </MenuItem>
+        </MenuList>
+      </Menu>
     </>
-  )
-}
+  );
+};
