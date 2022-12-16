@@ -1,22 +1,23 @@
 import axios from "axios";
-//get Data from search {query}
 
-export const fetchAllProducts = async () => {
-  return axios.get(
-    `https://backenddataskinproducts-production.up.railway.app/api/skinproducts`
-  );
-};
+const API="https://backenddataskinproducts-production.up.railway.app/api/skinproducts"
+
+// export const fetchAllProducts = async () => {
+//   return axios.get(
+//     `https://backenddataskinproducts-production.up.railway.app/api/skinproducts`
+//   );
+// };
 
 export const fetchDataBySearch = async (query) => {
-  return axios.get(
-    `https://backenddataskinproducts-production.up.railway.app/api/skinproducts?q=${query}`
+  return await axios.get(
+    `${API}?q=${query}`
   );
 };
 
 
 export const SearchByCategory = async (product_type) => {
-  return axios.get(
-    `https://backenddataskinproducts-production.up.railway.app/api/skinproducts?product_type=${product_type}`
+  return await axios.get(
+    `${API}?product_type=${product_type}`
   );
 };
 

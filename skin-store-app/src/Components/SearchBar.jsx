@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { SearchIcon } from "@chakra-ui/icons";
 import {
   Drawer,
@@ -13,14 +13,23 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { fetchDataBySearch } from "../data/fetchData";
+import { ProductContext } from "../Context/ProductContext/ProductContext";
 
 export const Searchbar = () => {
   const [query, setQuery] = useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
   // const btnRef = React.useRef();
-  // useEffect(()=>{
-  //  fetchDataBySearch(query);
-  // },[query])
+  const { dispatch } = useContext(ProductContext);
+  useEffect(() => {
+    try {
+      fetchDataBySearch(query).then((res) =>
+        dispatch({ type: "GET_PRODUCT_BY_SEARCH", payload: res.data })
+      );
+    } catch (error) {
+      console.log("error:", error);
+    }
+  }, [query]);
+
   return (
     <>
       <SearchIcon fontSize="xl" color="black" onClick={onOpen} />
