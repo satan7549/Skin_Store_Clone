@@ -4,6 +4,8 @@ import { Cart } from "../Pages/Cart";
 import { ErrorPage } from "../Pages/ErrorPage";
 import { Home } from "../Pages/Home";
 import { Login } from "../Pages/Login";
+import { Products } from "../Pages/Products";
+import { SingleProduct } from "../Pages/SingleProduct";
 
 export const AllRoutes = () => {
   return (
@@ -12,7 +14,9 @@ export const AllRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/error" element={<ErrorPage />} />
+        <Route path="/products" element={<Products />}/>
+        <Route path="/products/:id" element={<SingleProduct />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>
   );

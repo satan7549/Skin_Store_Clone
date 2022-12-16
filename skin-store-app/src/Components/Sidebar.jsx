@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../style/navbar.css";
 import "../style/sidebar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,13 +13,32 @@ import {
   DrawerCloseButton,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import {CategoryData} from "../data/CategoryData"
+import { SearchByCategory } from "../data/fetchData";
+
 
 
 export const Sidebar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
+  const [productType,setProductTtype]=useState("");
+
+
+useEffect(()=>{
+  try{
+    SearchByCategory(productType).then((res)=>console.log(res.data))
+  }catch(error){
+  console.log('error:', error)
+  }
+  
+},[productType])
+
+// const handleProductType=()=>{
+//   <Navigate to="/products" />
+// }
+
+
 
   return (
     <>
@@ -58,7 +77,7 @@ export const Sidebar = () => {
                     borderBottom="1px solid black"
                     px="10px"
                     p="10px"
-                    onClick={() => alert(`${ele.c_name}`)}
+                    onClick={() => setProductTtype(ele.c_name.toLowerCase().replaceAll(' ', '_'))}
                     _hover={{ cursor: "pointer", color:"teal",borderBottom:"1px solid teal" }}
                   >
                     <Text fontSize="lg" fontWeight="bold">
