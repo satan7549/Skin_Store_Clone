@@ -11,8 +11,14 @@ import {
   ButtonGroup,
   Stack,
 } from "@chakra-ui/react";
+import { useContext } from "react";
+import { NavLink } from "react-router-dom";
+import { CartContext } from "../Context/Cart/CartContextProvider";
 
 const CardComp = ({ item }) => {
+  const {dispatch}=useContext(CartContext);
+
+
   return (
     <Card maxW="xs" boxShadow="base">
       <CardBody>
@@ -40,14 +46,16 @@ const CardComp = ({ item }) => {
         </Stack>
       </CardBody>
       <Divider />
-      <CardFooter  >
+      <CardFooter>
         <ButtonGroup spacing="2">
           <Button variant="solid" colorScheme="blue">
-           QUICK BUY
+            QUICK BUY
           </Button>
-          <Button variant="ghost" colorScheme="blue">
-            Add to cart
-          </Button>
+          <NavLink to="/cart" onClick={()=>dispatch({type:"ADD_TO_CART", payload:item})} >
+            <Button variant="ghost" colorScheme="blue">
+              Add to cart
+            </Button>
+          </NavLink>
         </ButtonGroup>
       </CardFooter>
     </Card>
