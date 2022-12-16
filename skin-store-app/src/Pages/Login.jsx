@@ -15,8 +15,8 @@ import {
 import axios from "axios";
 import { useContext, useState } from "react";
 import { Navigate } from "react-router-dom";
-import { loginFailureAction, loginSucessAction } from "../Context/Action";
-import { AuthContext } from "../Context/AuthContextProvider";
+import { loginFailureAction, loginSucessAction } from "../Context/Auth/Action";
+import { AuthContext } from "../Context/Auth/AuthContextProvider";
 
 export const getToken = (loginDetails) => {
   return axios({
