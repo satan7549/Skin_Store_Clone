@@ -28,7 +28,7 @@ const CategoryData = [
   },
   {
     c_name: "Nail Polish",
-  },
+  }
 ];
 
 const c_avg = [
@@ -49,4 +49,5 @@ const c_avg = [
 //   "Mascara",
 //   "Eyebrow",
 //   "Nail Polish",
+//     "pencil"
 export { CategoryData, c_avg };
