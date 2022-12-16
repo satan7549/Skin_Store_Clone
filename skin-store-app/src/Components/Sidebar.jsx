@@ -14,19 +14,8 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
+import {CategoryData} from "../data/CategoryData"
 
-export const category = [
-  "Lip Liner",
-  "Lipstick",
-  "Foundation",
-  "Eyeliner",
-  "Eyeshadow",
-  "Blush",
-  "Bronzer",
-  "Mascara",
-  "Eyebrow",
-  "Nail Polish",
-];
 
 export const Sidebar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -57,7 +46,7 @@ export const Sidebar = () => {
           </DrawerHeader>
           <DrawerBody>
             <VStack spacing={8} direction="column">
-              {category.map((ele, i) => {
+              {CategoryData.map((ele, i) => {
                 return (
                   <Box
                     key={i}
@@ -66,14 +55,14 @@ export const Sidebar = () => {
                     justifyContent="space-between"
                     alignItems="center"
                     width="100%"
-                    borderBottom="2px solid black"
+                    borderBottom="1px solid black"
                     px="10px"
                     p="10px"
-                    onClick={() => alert(`${ele}`)}
-                    _hover={{ cursor: "pointer" }}
+                    onClick={() => alert(`${ele.c_name}`)}
+                    _hover={{ cursor: "pointer", color:"teal",borderBottom:"1px solid teal" }}
                   >
                     <Text fontSize="lg" fontWeight="bold">
-                      {ele}
+                      {ele.c_name}
                     </Text>
                     <FontAwesomeIcon icon={faChevronRight} />
                   </Box>
