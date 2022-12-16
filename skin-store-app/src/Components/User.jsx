@@ -3,16 +3,15 @@ import { Menu, MenuButton, MenuList, MenuItem, Button } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../Context/AuthContextProvider";
-import { logoutSucessAction } from "../Context/Action";
+import { AuthContext } from "../Context/Auth/AuthContextProvider";
+import { logoutSucessAction } from "../Context/Auth/Action";
 
 export const User = () => {
   const { state, dispatch } = useContext(AuthContext);
 
-  const Logout=()=>{    
-    dispatch(logoutSucessAction())    
-  }
-
+  const Logout = () => {
+    dispatch(logoutSucessAction());
+  };
 
   return (
     <>
@@ -21,8 +20,7 @@ export const User = () => {
           <FontAwesomeIcon fontSize="2xl" color="black" icon={faUser} />
         </MenuButton>
         <MenuList borderRadius="2px">
-          {state.isAuth ?
-          (
+          {state.isAuth ? (
             <MenuItem>
               <Button
                 width="100%"
@@ -36,8 +34,7 @@ export const User = () => {
                 LOG OUT
               </Button>
             </MenuItem>
-          ) :          
-          (
+          ) : (
             <Link to="/login">
               <MenuItem>
                 <Button
@@ -52,7 +49,7 @@ export const User = () => {
                 </Button>
               </MenuItem>
             </Link>
-          ) }
+          )}
 
           <MenuItem>
             <Button
