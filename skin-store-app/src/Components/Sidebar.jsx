@@ -13,7 +13,7 @@ import {
   DrawerCloseButton,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { CategoryData } from "../data/CategoryData";
 import { SearchByCategory } from "../data/fetchData";
 import { ProductContext } from "../Context/ProductContext/ProductContext";
