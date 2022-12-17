@@ -16,6 +16,7 @@ import {
   CloseButton,
 } from "@chakra-ui/react";
 import QuantityBtn from "../Components/QuantyBtn";
+import { NavLink } from "react-router-dom";
 // import { CartCard } from "../Components/CartCard";
 
 export const Cart = () => {
@@ -35,11 +36,11 @@ export const Cart = () => {
       <Table variant="striped" colorScheme="teal">
         <TableCaption>Imperial to metric conversion factors</TableCaption>
         <Thead>
-          <Tr fontSize="bold" fontWeight="20px">
+          <Tr fontSize="xl" fontWeight="bold">
             <Th>Items</Th>
             <Th>Price</Th>
             <Th>QUANTITY</Th>
-            <Th isNumeric>SUBTOTAL</Th>
+            {/* <Th isNumeric>SUBTOTAL</Th> */}
             <Th>DELETE</Th>
           </Tr>
         </Thead>
@@ -49,29 +50,31 @@ export const Cart = () => {
               return (
                 <Tr>
                   <Td>
-                    <Box
-                      width="200px"
-                      height="100%"
-                      display="flex"
-                      alignItems="center"
-                      gap="10px"
-                    >
-                      <Image
-                        width="100px"
-                        height="100px"
-                        src={ele.image_link}
-                        alt={ele.id}
-                      />
-                      <Text as="h1" width="50px" textAlign="justify">
-                        {ele.name}
-                      </Text>
-                    </Box>
+                    <NavLink to={`/products/${ele.id}`}>
+                      <Box
+                        width="200px"
+                        height="100%"
+                        display="flex"
+                        alignItems="center"
+                        gap="10px"
+                      >
+                        <Image
+                          width="100px"
+                          height="100px"
+                          src={ele.image_link}
+                          alt={ele.id}
+                        />
+                        <Text as="h1" width="50px" textAlign="justify">
+                          {ele.name}
+                        </Text>
+                      </Box>
+                    </NavLink>
                   </Td>
                   <Td>$ {ele.price}</Td>
                   <Td>
                     <QuantityBtn tcount={(val) => handleTotalCount(val)} />
                   </Td>
-                  <Td isNumeric>25.4</Td>
+                  {/* <Td isNumeric></Td> */}
                   <Td>
                     <CloseButton
                       size="md"
