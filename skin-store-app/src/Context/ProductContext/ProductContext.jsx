@@ -1,31 +1,18 @@
-import axios from "axios";
-import React, { createContext, useContext, useEffect, useReducer } from "react";
+import React, { createContext, useReducer } from "react";
 import { reducer } from "./reducer";
 
 export const ProductContext = createContext();
 
-const API = `https://backenddataskinproducts-production.up.railway.app/api/skinproducts`;
-
 const initialState = {
   products: [],
   categoryProduct: [],
+  searchProduct: [],
+  singleProduct: {},
 };
 
 const ProductContextProvider = ({ children }) => {
   // // console.log(reducer);
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  const getProduct = async (url) => {
-    try {
-      const res = await axios.get(url);
-    } catch (error) {
-      console.log("error:", error);
-    }
-  };
-
-  useEffect(() => {
-    getProduct(API);
-  }, []);
 
   return (
     <ProductContext.Provider value={{ state, dispatch }}>
@@ -34,8 +21,4 @@ const ProductContextProvider = ({ children }) => {
   );
 };
 
-const useProductContext = () => {
-  return useContext(ProductContext);
-};
-
-export { ProductContextProvider, useProductContext };
+export { ProductContextProvider };

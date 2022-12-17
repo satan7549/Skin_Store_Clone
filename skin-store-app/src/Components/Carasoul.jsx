@@ -1,45 +1,147 @@
-import Carousel from 'react-bootstrap/Carousel';
+// import "~slick-carousel/slick/slick.css";
+// import "~slick-carousel/slick/slick-theme.css"
 
-function IndividualIntervalsExample() {
+import React, { useState } from "react";
+import {
+  Box,
+  IconButton,
+  useBreakpointValue,
+  Stack,
+  Heading,
+  Text,
+  Container,
+} from "@chakra-ui/react";
+import Slider from "react-slick";
+
+const settings = {
+  dots: true,
+  arrows: false,
+  fade: true,
+  infinite: true,
+  autoplay: true,
+  speed: 500,
+  autoplaySpeed: 1000,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+};
+
+// {<p class="primaryBanner_subtitle primaryBanner_subtitle-light"><font size="+1">
+// Get 15% off the best beauty finds with code 
+// <b> SS15</b> and achieve the ultimate winter-approved beauty routine. 
+// <br><br> Order with express shipping by 12/21 and they'll make it under the tree.
+// </font></p>}
+
+const Carasoul = () => {
+  const [slider, setSlider] =useState(0);
+  //  (< Slider) | (null > null);
+
+  const top = useBreakpointValue({ base: "90%", md: "50%" });
+  const side = useBreakpointValue({ base: "30%", md: "40px" });
+  const cards = [
+    {
+      // title: "Design Projects 1",
+      // text: "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
+      image:
+        "	https://static.thcdn.com/images/large/webp/widgets/121-us/44/original-New_Project_%288%29-090344.jpg",
+    },
+    {
+      // title: "Design Projects 2",
+      // text: "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
+      image:
+        "https://static.thcdn.com/images/medium/webp/widget…ing-And-Artwork-P2-Shot-5-580x384.jpeg-095611.jpg",
+    },
+    {
+      // title: "Design Projects 3",
+      // text: "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
+      image:"	https://static.thcdn.com/images/medium/webp/widgets/121-us/00/original-Shot6-580x384-095500.jpeg",
+       
+    },
+  ];
+
   return (
-    <Carousel>
-      <Carousel.Item interval={1000}>
-        {/* <img
-          className="d-block w-100"
-          src="holder.js/800x400?text=First slide&bg=373940"
-          alt="First slide"
-        /> */}
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item interval={500}>
-        {/* <img
-          className="d-block w-100"
-          src="holder.js/800x400?text=Second slide&bg=282c34"
-          alt="Second slide"
-        /> */}
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        {/* <img
-          className="d-block w-100"
-          src="holder.js/800x400?text=Third slide&bg=20232a"
-          alt="Third slide"
-        /> */}
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
-  );
-}
+    <Box
+      position={"relative"}
+      height={"600px"}
+      width={"full"}
+      overflow={"hidden"}
+    >
+      {/* CSS files for react-slick */}
+      <link
+        rel="stylesheet"
+        type="text/css"
+        charSet="UTF-8"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+      />
+      <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+      />
+      {/* Left Icon */}
+      <IconButton
+        aria-label="left-arrow"
+        variant="ghost"
+        position="absolute"
+        left={side}
+        top={top}
+        transform={"translate(0%, -50%)"}
+        zIndex={2}
+        onClick={() => slider?.slickPrev()}
+      >
+        {/* <BiLeftArrowAlt size="40px" /> */}
+        snf
 
-export default IndividualIntervalsExample;
+      </IconButton>
+      {/* Right Icon */}
+      <IconButton
+        aria-label="right-arrow"
+        variant="ghost"
+        position="absolute"
+        right={side}
+        top={top}
+        transform={"translate(0%, -50%)"}
+        zIndex={2}
+        onClick={() => slider?.slickNext()}
+      >
+        jsd
+        {/* <BiRightArrowAlt size="40px" /> */}
+      </IconButton>
+      {/* Slider */}
+      <Slider {...settings} ref={(slider) => setSlider(slider)}>
+        {cards.map((card, index) => (
+          <Box
+            key={index}
+            height="100vh"
+            w="100vw"
+            position="relative"
+            backgroundPosition="center"
+            backgroundRepeat="no-repeat"
+            backgroundSize="cover"
+            backgroundImage={`url(${card.image})`}
+          >
+            {/* This is the block you need to change, to customize the caption */}
+            {/* <Container size="container.lg" height="600px" position="relative">
+              <Stack
+                spacing={6}
+                w={"full"}
+                maxW={"lg"}
+                position="absolute"
+                top="50%"
+                transform="translate(0, -50%)"
+              >
+                <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
+                  {card.title}
+                </Heading>
+                <Text fontSize={{ base: "md", lg: "lg" }} color="GrayText">
+                  {card.text}
+                </Text>
+              </Stack>
+            </Container> */}
+          </Box>
+        ))}
+      </Slider>
+    </Box>
+  );
+};
+
+export default Carasoul;
