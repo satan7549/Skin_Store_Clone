@@ -18,7 +18,7 @@ const cartReducer = (state, action) => {
       };
     }
     case "INC_DEC_ITEM": {
-      console.log("reduce", action.payload);
+      // console.log("reduce", action.payload);
       return {
         ...state,
         total_item: action.payload,
