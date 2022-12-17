@@ -16,8 +16,7 @@ import { NavLink } from "react-router-dom";
 import { CartContext } from "../Context/Cart/CartContextProvider";
 
 const CardComp = ({ item }) => {
-  const {dispatch}=useContext(CartContext);
-
+  const { dispatch } = useContext(CartContext);
 
   return (
     <Card maxW="xs" boxShadow="base">
@@ -51,7 +50,10 @@ const CardComp = ({ item }) => {
           <Button variant="solid" colorScheme="blue">
             QUICK BUY
           </Button>
-          <NavLink to="/cart" onClick={()=>dispatch({type:"ADD_TO_CART", payload:item})} >
+          <NavLink
+            to="/cart"
+            onClick={() => dispatch({ type: "ADD_TO_CART", payload: item })}
+          >
             <Button variant="ghost" colorScheme="blue">
               Add to cart
             </Button>
