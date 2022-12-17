@@ -1,16 +1,13 @@
-import axios from "axios";
-import React, { createContext, useContext, useEffect, useReducer } from "react";
+import React, { createContext, useReducer } from "react";
 import { reducer } from "./reducer";
 
 export const ProductContext = createContext();
 
-const API = `https://backenddataskinproducts-production.up.railway.app/api/skinproducts`;
-
 const initialState = {
-  products:[],
-  categoryProduct:[],
-  searchProduct:[],
-  singleProduct:{}
+  products: [],
+  categoryProduct: [],
+  searchProduct: [],
+  singleProduct: {},
 };
 
 const ProductContextProvider = ({ children }) => {
@@ -18,12 +15,10 @@ const ProductContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <ProductContext.Provider value={{state,dispatch}}>
+    <ProductContext.Provider value={{ state, dispatch }}>
       {children}
     </ProductContext.Provider>
   );
 };
-
-
 
 export { ProductContextProvider };
