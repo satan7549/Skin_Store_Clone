@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { Box } from "@chakra-ui/react";
 import CardComp from "../Components/CardComp";
-import { fetchAllProducts, SearchByCategory } from "../data/fetchData";
 import { ProductContext } from "../Context/ProductContext/ProductContext";
 import { NavLink } from "react-router-dom";
 
