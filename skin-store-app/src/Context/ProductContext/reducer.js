@@ -1,4 +1,3 @@
-
 export const reducer = (state, action) => {
   switch (action.type) {
     case "GET_ALL_PRODUCTS": {
@@ -7,11 +6,11 @@ export const reducer = (state, action) => {
         products: action.payload,
       };
     }
-    case "GET_CATEGORY_PRODUCTS":{
-        return{
-            ...state,
-            categoryProduct:action.payload
-        }
+    case "GET_CATEGORY_PRODUCTS": {
+      return {
+        ...state,
+        categoryProduct: action.payload,
+      };
     }
     case "GET_SINGLE_PRODUCT": {
       return {
@@ -20,12 +19,11 @@ export const reducer = (state, action) => {
       };
     }
     case "GET_PRODUCT_BY_SEARCH": {
-        console.log(action.payload);
-        return {
-          ...state,
-          searchProduct: action.payload,
-        };
-      }
+      return {
+        ...state,
+        searchProduct: action.payload,
+      };
+    }
     default: {
       return state;
     }
