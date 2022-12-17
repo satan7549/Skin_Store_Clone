@@ -2,11 +2,11 @@ import axios from "axios";
 
 const API="https://backenddataskinproducts-production.up.railway.app/api/skinproducts"
 
-// export const fetchAllProducts = async () => {
-//   return axios.get(
-//     `https://backenddataskinproducts-production.up.railway.app/api/skinproducts`
-//   );
-// };
+export const fetchSingleProductByID = async (id) => {
+  return await axios.get(
+    `${API}/${id}`
+  );
+};
 
 export const fetchDataBySearch = async (query) => {
   return await axios.get(
