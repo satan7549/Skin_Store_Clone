@@ -17,9 +17,9 @@ export const Products = () => {
       gridTemplateRows="auto"
     >
       {productType.map((ele) => (
-        <NavLink to={`/products/${ele.id}`} key={ele.id}>
-          <CardComp item={ele} />
-        </NavLink>
+       
+          <CardComp  key={ele.id} item={ele} />
+        
       ))}
     </Box>
   );
