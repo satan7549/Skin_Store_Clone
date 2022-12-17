@@ -19,24 +19,23 @@ import QuantityBtn from "../Components/QuantyBtn";
 // import { CartCard } from "../Components/CartCard";
 
 export const Cart = () => {
-  const [totalQuantity,setTotalQuantity]=useState(0);
-  const { state,dispatch } = useContext(CartContext);
+  const [totalQuantity, setTotalQuantity] = useState(0);
+  const { state, dispatch } = useContext(CartContext);
   //next work we have to store data some ware because we find only one data heare
 
   console.log("CartPage", state.cart);
 
-const handleTotalCount=(val)=>{
- setTotalQuantity(totalQuantity+val)
-//  dispatch({type:"INC_DEC_ITEM",payload:totalQuantity})
-}
-
+  const handleTotalCount = (val) => {
+    setTotalQuantity(totalQuantity + val);
+    //  dispatch({type:"INC_DEC_ITEM",payload:totalQuantity})
+  };
 
   return (
     <TableContainer>
-      <Table variant="striped" colorScheme='teal' >
+      <Table variant="striped" colorScheme="teal">
         <TableCaption>Imperial to metric conversion factors</TableCaption>
-        <Thead >
-          <Tr fontSize="bold" fontWeight="20px" >
+        <Thead>
+          <Tr fontSize="bold" fontWeight="20px">
             <Th>Items</Th>
             <Th>Price</Th>
             <Th>QUANTITY</Th>
@@ -70,11 +69,19 @@ const handleTotalCount=(val)=>{
                   </Td>
                   <Td>$ {ele.price}</Td>
                   <Td>
-                  <QuantityBtn tcount={(val)=>handleTotalCount(val)}  />
+                    <QuantityBtn tcount={(val) => handleTotalCount(val)} />
                   </Td>
                   <Td isNumeric>25.4</Td>
                   <Td>
-                    <CloseButton size="md" onClick={()=>dispatch({type:"DELETE_ITEM_FROM_CART",payload:ele.id})} />
+                    <CloseButton
+                      size="md"
+                      onClick={() =>
+                        dispatch({
+                          type: "DELETE_ITEM_FROM_CART",
+                          payload: ele.id,
+                        })
+                      }
+                    />
                   </Td>
                 </Tr>
               );
@@ -84,8 +91,12 @@ const handleTotalCount=(val)=>{
           <Tr>
             {/* <Th>To convert</Th> */}
             <Th></Th>
-            <Th fontSize="20px" fontWeight="bold" >Total</Th>
-            <Th fontSize="20px" fontWeight="bold" >Total Unit {state.total_item}</Th>
+            <Th fontSize="20px" fontWeight="bold">
+              Total
+            </Th>
+            <Th fontSize="20px" fontWeight="bold">
+              Total Unit {state.total_item}
+            </Th>
             <Th isNumeric>SUBTOTAL</Th>
           </Tr>
         </Tfoot>
