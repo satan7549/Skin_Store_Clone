@@ -20,6 +20,7 @@ const CardComp = ({ item }) => {
 
   return (
     <Card maxW="xs" boxShadow="base">
+      <NavLink to={`/products/${item.id}`} >
       <CardBody>
         <Image
           src={item.image_link}
@@ -30,35 +31,29 @@ const CardComp = ({ item }) => {
           height="300px"
         />
         <Stack mt="6" spacing="3">
-          <Heading size="md">{item.name}</Heading>
+          <Heading size="md"> {item.name}</Heading>
           <Text color="black.600" fontWeight="bold" fontSize="2xl">
             {item.category}
           </Text>
-          {/* <Text>
-            This sofa is perfect for modern tropical spaces, baroque inspired
-            spaces, earthy toned spaces and for people who love a chic design
-            with a sprinkle of vintage design.
-          </Text> */}
           <Text color="blue.600" fontSize="2xl">
-            ${item.price}
+          ${item.price}
           </Text>
         </Stack>
       </CardBody>
+      </NavLink>
       <Divider />
       <CardFooter>
-        <ButtonGroup spacing="2">
-          <Button variant="solid" colorScheme="blue">
-            QUICK BUY
-          </Button>
-          <NavLink
-            to="/cart"
-            onClick={() => dispatch({ type: "ADD_TO_CART", payload: item })}
-          >
-            <Button variant="ghost" colorScheme="blue">
-              Add to cart
-            </Button>
-          </NavLink>
-        </ButtonGroup>
+        <Button
+          width="100%"
+          p="-1"
+          borderRadius="none"
+          colorScheme="black"
+          _hover={{ bg: "black", color: "white" }}
+          variant="outline"
+          onClick={() => dispatch({ type: "ADD_TO_CART", payload: item })}
+        >
+          Add to cart
+        </Button>
       </CardFooter>
     </Card>
   );
