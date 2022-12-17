@@ -78,7 +78,7 @@ export const Searchbar = () => {
               />
             </InputGroup>
           </DrawerBody>
-          <DrawerFooter>
+          <DrawerFooter hidden={query !== "" ? false : true}>
             <VStack width="full">
               <Box
                 width="full"
