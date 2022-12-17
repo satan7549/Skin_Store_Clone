@@ -28,7 +28,7 @@ const CategoryData = [
   },
   {
     c_name: "Nail Polish",
-  }
+  },
 ];
 
 const c_avg = [
