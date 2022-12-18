@@ -1,0 +1,13 @@
+.PartnerCompany-main-div{
+    margin: auto;
+    margin: 100px 0;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+.PartnerCompany-main-div img{
+    width: 200px;
+    height: 100%;
+}

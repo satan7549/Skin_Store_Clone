@@ -13,7 +13,7 @@ import {
   DrawerCloseButton,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { CategoryData } from "../data/CategoryData";
 import { SearchByCategory } from "../data/fetchData";
 import { ProductContext } from "../Context/ProductContext/ProductContext";
@@ -65,10 +65,6 @@ export const Sidebar = () => {
                 return (
                   <Box
                     key={i}
-                    display="flex"
-                    flexDirection="row"
-                    justifyContent="space-between"
-                    alignItems="center"
                     width="100%"
                     borderBottom="1px solid black"
                     px="10px"
@@ -87,10 +83,19 @@ export const Sidebar = () => {
                       borderBottom: "1px solid teal",
                     }}
                   >
-                    <Text fontSize="lg" fontWeight="bold">
-                      {ele.c_name}
-                    </Text>
-                    <FontAwesomeIcon icon={faChevronRight} />
+                    <NavLink to="/products" >
+                    <Box
+                      display="flex"
+                      flexDirection="row"
+                      justifyContent="space-between"
+                      alignItems="center"
+                    >
+                      <Text fontSize="lg" fontWeight="bold">
+                        {ele.c_name}
+                      </Text>
+                      <FontAwesomeIcon icon={faChevronRight} />
+                    </Box>
+                    </NavLink>
                   </Box>
                 );
               })}

@@ -1,0 +1,14 @@
+/* .maincategoryItem{
+    
+} */
+
+.categoryItem {
+  margin: auto;
+  margin-top: 2rem;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  padding: 1rem 0;
+  font-family: "Lato-Regular Helvetica Arial sans-serif";
+  /* border: 1px solid black; */
+}
