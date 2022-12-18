@@ -7,7 +7,6 @@ import HomeImageBottom from "../Components/HomeImageBottom";
 import { ImageSlider } from "../Components/ImageSlider";
 import { OfferSlider } from "../Components/OfferSlider";
 import PartnerCompany from "../Components/PartnerCompany";
-import { ReactMultiCarasol } from "../Components/ReactMultiCarasol";
 import { TrandingOffer } from "../Components/TrandingOffer";
 
 export const Home = () => {
