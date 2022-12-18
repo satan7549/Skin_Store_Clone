@@ -1,20 +1,23 @@
-import { Avatar, Box, Flex, Grid, GridItem, Heading } from "@chakra-ui/react";
+import {Heading } from "@chakra-ui/react";
 import React from "react";
 import { c_avg } from "../data/CategoryData";
+import "../style/CategoryComp.css"
 
-export const CategoryComp = () => {
+const CategoryComp = () => {
   return (
-    <Box mt={4} border="1px solid red">
+    <div className="maincategoryItem">
       <Heading fontWeight="bolder">Shop By Category</Heading>
-      <Grid templateColumns="repeat(6,1fr)" gap={2}>
-        {c_avg.map((el) => {
+      <div className="categoryItem">
+        {c_avg.map((el,i) => {
           return (
-            <GridItem>
-              <Avatar size="2xl" src={el} />
-            </GridItem>
+            <div key={i}>
+              <img src={el.src} />
+            </div>
           );
         })}
-      </Grid>
-    </Box>
+      </div>
+    </div>
   );
 };
+
+export default CategoryComp
