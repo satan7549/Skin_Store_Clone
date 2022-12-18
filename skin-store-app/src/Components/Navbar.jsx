@@ -16,7 +16,7 @@ export const Navbar = () => {
         <Sidebar />
         <Searchbar />
       </Box>
-      <Box>
+      <Box className="skinstore">
         <Link to="/">SkinStore</Link>
       </Box>
       <Box display="flex" gap={5} justifyContent="space-around">
