@@ -6,8 +6,7 @@
   font-family: "Lato-Regular Helvetica Arial sans-serif";
 }
 .Discover_Holiday_fun > h2 {
-  font-size: 18px;
- 
+  font-size: 16px;
   line-height: 1.2;
   color: #2e3337;
   font-weight: 400;
@@ -24,7 +23,7 @@
 }
 .btnBox > span {
   font-weight: 700;
-  font-size: 30px;
+  font-size: 20px;
   cursor: pointer;
   /* padding: 2px; */
 }

@@ -1,13 +1,14 @@
-.PartnerCompany-main-div{
-    margin: auto;
-    margin: 100px 0;
-    height: 100px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    
+.PartnerCompany-main-div {
+  margin: auto;
+  margin: 80px;
+  height: 80px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: space-around;
 }
-.PartnerCompany-main-div img{
-    width: 200px;
-    height: 100%;
+.PartnerCompany-main-div img {
+  width: 200px;
+  height: 100%;
 }
