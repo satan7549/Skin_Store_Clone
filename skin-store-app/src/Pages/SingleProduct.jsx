@@ -1,14 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { ProductContext } from "../Context/ProductContext/ProductContext";
 import { fetchSingleProductByID } from "../data/fetchData";
 import {
   Box,
-  Container,
   HStack,
   Image,
   VStack,
-  Text,
   Accordion,
   AccordionItem,
   AccordionButton,
@@ -17,18 +14,23 @@ import {
   Heading,
   Button,
 } from "@chakra-ui/react";
-import QuantityBtn from "../Components/QuantyBtn";
 import { CartContext } from "../Context/Cart/CartContextProvider";
 
 export const SingleProduct = () => {
-  const {dispatch}=useContext(CartContext);
+  const { dispatch } = useContext(CartContext);
   const { id } = useParams();
   const [data, setData] = useState({});
+  const [click, setClick] = useState(0);
+
+  const handleAddToCart = (item) => {
+    setClick(1);
+    dispatch({ type: "ADD_TO_CART", payload: item });
+  };
 
   useEffect(() => {
     fetchSingleProductByID(id).then((res) => setData(res.data));
   }, [id]);
-  console.log(data);
+  // console.log(data);
 
   return (
     <Box
@@ -74,12 +76,12 @@ export const SingleProduct = () => {
                 colorScheme="black"
                 _hover={{ bg: "black", color: "white" }}
                 variant="outline"
-                onClick={()=>dispatch({type:"ADD_TO_CART",payload:data})}
+                disabled={click === 1 ? true : false}
+                onClick={() => handleAddToCart(data)}
               >
                 ADD TO CART
               </Button>
             </Box>
-    
           </VStack>
         </Box>
       </HStack>
@@ -88,17 +90,16 @@ export const SingleProduct = () => {
           <AccordionItem>
             <h2>
               <AccordionButton>
-                <Box fontSize="xl" as="span" flex="1" textAlign="center" >
+                <Box fontSize="xl" as="span" flex="1" textAlign="center">
                   Decription
                 </Box>
                 <AccordionIcon />
               </AccordionButton>
             </h2>
-            <AccordionPanel pb={4} >{data.description}</AccordionPanel>
+            <AccordionPanel pb={4}>{data.description}</AccordionPanel>
           </AccordionItem>
         </Accordion>
       </VStack>
-      
     </Box>
   );
 };
