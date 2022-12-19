@@ -24,7 +24,7 @@ export const Navbar = () => {
         <Link to="/cart">
           <FontAwesomeIcon
             fontSize="2xl"
-            color="black"
+            color={state.cart.length===0 ? "black":"teal"}
             icon={faShoppingBasket}
           />
           {
