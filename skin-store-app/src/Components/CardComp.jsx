@@ -1,6 +1,5 @@
 import {
   Card,
-  CardHeader,
   CardBody,
   CardFooter,
   Image,
@@ -8,7 +7,6 @@ import {
   Text,
   Divider,
   Button,
-  ButtonGroup,
   Stack,
 } from "@chakra-ui/react";
 import { useContext, useState } from "react";
@@ -49,6 +47,7 @@ const CardComp = ({ item }) => {
       </NavLink>
       <Divider />
       <CardFooter>
+        {/* <AddToCartBtn /> */}
         <Button
           width="100%"
           p="-1"
@@ -56,7 +55,7 @@ const CardComp = ({ item }) => {
           colorScheme="black"
           _hover={{ bg: "black", color: "white" }}
           variant="outline"
-          disabled={click===1? true : false}
+          disabled={click === 1 ? true : false}
           onClick={() => handleAddToCart(item)}
         >
           Add to cart
