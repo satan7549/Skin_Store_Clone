@@ -8,15 +8,16 @@ This is E-commerce website. I try to implement my best possible knowledge to sho
  `Email:-eve.holt@reqres.in`
  `Password:-sat1234`
 # Tech Stacks Used
- `React JS`
- `Chakra UI`
- `Javascript`
- `CSS`
+- React JS
+- Chakra UI
+- Javascript
+- CSS
 
 # Features
 - Navigation Bar and Footer is well aligned.
 - Authenication is provided .
 - Products page where all the products is provided and user Add to Cart it accordingly.
+- Used API to manage the products. 
 - Login is provided useing Api.
 - Special Order Management System is Provided for to dynamically Change the quantity   of Product available in Cart .
 
