@@ -1,4 +1,4 @@
-# hulking-crowd-2544
+# Skin Store
 
 This is E-commerce website. I try to implement my best possible knowledge to showcase and try to grab attention of users where they are looking for beauty products. 
 
