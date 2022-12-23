@@ -1,6 +1,6 @@
 # hulking-crowd-2544
 
-This is E-commerce app and we're here to offer you beauty &amp; innovative clinical skincare and luxury products for better lifestyle.
+This is E-commerce website. I try to implement my best possible knowledge to showcase and try to grab attention of users where they are looking for beauty products. 
 
 # [Netlify Link](https://skinsotre-clone-by-sattan.netlify.app/)
 
