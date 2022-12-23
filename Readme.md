@@ -3,7 +3,7 @@ This is E-commerce app and we're here to offer you beauty &amp; innovative clini
 # [Netlify Link](https://skinsotre-clone-by-sattan.netlify.app/)
 # Overview
                              Home Page
-![skinstore](https://user-images.githubusercontent.com/104748364/205475922-31d54887-5564-47b4-b538-b82089063aba.png)
+<img src="./Project_Images/Home_Page" alt="Home_Page" >
 
 # Tech Stacks Used
 - React JS
