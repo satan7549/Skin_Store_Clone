@@ -5,10 +5,9 @@ This is E-commerce app and we're here to offer you beauty &amp; innovative clini
 # [Netlify Link](https://skinsotre-clone-by-sattan.netlify.app/)
 
 # Demo Login Credentials
-Use this Credentials to Login as a user.
- Email:-eve.holt@reqres.in
- Password:-sat1234
-
+[Use this Credentials to Login as a user.]
+ (Email:-eve.holt@reqres.in
+ Password:-sat1234)
 
 # Overview
 <div>
