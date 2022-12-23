@@ -20,3 +20,4 @@ This is E-commerce app and we're here to offer you beauty &amp; innovative clini
 - React JS
 - Chakra UI
 - Javascript
+- CSS
