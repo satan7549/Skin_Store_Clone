@@ -11,7 +11,7 @@ export const TrandingOffer = () => {
       {trandingOffer.map((el,i) => {
         return (
           <div key={i}>
-            <img src={el.src} />
+            <img alt={i} src={el.src} />
             <h4>{el.h}</h4>
             <p>{el.p}</p>
             <button>Shop Now</button>
