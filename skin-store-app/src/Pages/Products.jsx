@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Box } from "@chakra-ui/react";
 import CardComp from "../Components/CardComp";
 import { ProductContext } from "../Context/ProductContext/ProductContext";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 
 export const Products = () => {
   const { state } = useContext(ProductContext);
