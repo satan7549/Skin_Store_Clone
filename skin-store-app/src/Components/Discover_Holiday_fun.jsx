@@ -7,7 +7,7 @@ import {
 import CardComp from "./CardComp";
 import "../style/Discover_Holiday_fun.css"
 
-export const Discover_Holiday_fun = () => {
+export const DiscoverHolidayFun = () => {
     const [category,setCategory]=useState(Last_Minute_Gifting);
   return (
     <div className="Discover_Holiday_fun" >
