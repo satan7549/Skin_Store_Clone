@@ -1,7 +1,7 @@
 # Skin Store
 This is E-commerce website. I try to implement my best possible knowledge to showcase and try to grab attention of users where they are looking for beauty products. 
 
-# [Netlify Link](https://skinsotre-clone-by-sattan.netlify.app/)
+## Netlify Deployed Link:- https://skinsotre-clone-by-sattan.netlify.app/
 
 ## Demo Login Credentials
 **Use this Credentials to Login as a user.**
