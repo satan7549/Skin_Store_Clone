@@ -11,7 +11,7 @@ const CategoryComp = () => {
         {c_avg.map((el,i) => {
           return (
             <div key={i}>
-              <img src={el.src} />
+              <img alt={i} src={el.src} />
             </div>
           );
         })}
