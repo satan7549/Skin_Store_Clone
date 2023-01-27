@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import "../style/navbar.css";
-import "../style/sidebar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faHouse } from "@fortawesome/free-solid-svg-icons";
 import { Box, VStack, useDisclosure, Text } from "@chakra-ui/react";
