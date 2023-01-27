@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const API =
-  "https://backenddataskinproducts-production.up.railway.app/api/skinproducts";
+const API ="https://skin-store-backend.onrender.com/api/skinproducts"
 
 export const fetchSingleProductByID = async (id) => {
   return await axios.get(`${API}/${id}`);
