@@ -1,7 +1,7 @@
 import { Spacer } from "@chakra-ui/react";
 import React from "react";
 import CategoryComp from "../Components/CategoryComp";
-import { Discover_Holiday_fun } from "../Components/Discover_Holiday_fun";
+import { DiscoverHolidayFun } from "../Components/Discover_Holiday_fun";
 import Footer from "../Components/Footer";
 import HomeImageBottom from "../Components/HomeImageBottom";
 import { ImageSlider } from "../Components/ImageSlider";
@@ -18,7 +18,7 @@ export const Home = () => {
       <Spacer h="20px" />
       <CategoryComp />
       <Spacer h="20px" />
-      <Discover_Holiday_fun />
+      <DiscoverHolidayFun />
       <Spacer h="20px" />
       <TrandingOffer />
       <Spacer h="20px" />
