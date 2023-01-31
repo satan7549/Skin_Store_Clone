@@ -98,16 +98,16 @@ export const Searchbar = () => {
                         onClick={onClose}
                       >
                         <Card
-                          height="100px"
+                          height={"100px"}
                           width="100%"
-                          direction={{ base: "column", sm: "row" }}
+                          direction={"row"}
                           variant="outline"
                         >
                           <Image
                             objectFit="cover"
                             my="auto"
                             height="100%"
-                            maxW={{ base: "100%", sm: "200px" }}
+                            width={"auto"}
                             src={ele.image_link}
                             alt={ele.id}
                             padding="10px"

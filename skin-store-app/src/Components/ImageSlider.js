@@ -19,7 +19,7 @@ export const ImageSlider = () => {
       draggable={false}
     >
       {cards.map((ele, i) => (
-        <Box key={i} h="600px" >
+        <Box key={i} h={{lg:"600px",md:"400px",sm:"200px"}} >
           <Image w="full" h="full" src={ele.image} alt={i} />
         </Box>
       ))}

@@ -7,7 +7,7 @@ import {
   Text,
   Divider,
   Button,
-  Stack,
+  VStack,
 } from "@chakra-ui/react";
 import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
@@ -23,26 +23,29 @@ const CardComp = ({ item }) => {
   };
 
   return (
-    <Card maxW="xs" boxShadow="base">
+    <Card maxW="full" boxShadow="base">
       <NavLink to={`/products/${item.id}`}>
         <CardBody>
-          <Image
-            src={item.image_link}
-            alt={item.id}
-            borderRadius="lg"
-            margin="auto"
-            width="100%"
-            height="300px"
-          />
-          <Stack mt="6" spacing="3">
-            <Heading size="md"> {item.name}</Heading>
-            <Text color="black.600" fontWeight="bold" fontSize="2xl">
-              {item.category}
-            </Text>
-            <Text color="blue.600" fontSize="2xl">
-              ${item.price}
-            </Text>
-          </Stack>
+          <VStack spacing="3">
+            <Image
+              src={item.image_link}
+              alt={item.id}
+              borderRadius="lg"
+              margin="auto"
+              width="100%"
+              height={"300px"}
+            />
+
+            <VStack mt="6" spacing="3">
+              <Heading size="md"> {item.name}</Heading>
+              <Text color="black.600" fontWeight="bold" fontSize="2xl">
+                {item.category}
+              </Text>
+              <Text color="blue.600" fontSize="2xl">
+                ${item.price}
+              </Text>
+            </VStack>
+          </VStack>
         </CardBody>
       </NavLink>
       <Divider />

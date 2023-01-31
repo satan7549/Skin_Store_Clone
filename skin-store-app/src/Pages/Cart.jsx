@@ -32,8 +32,16 @@ export const Cart = () => {
   };
 
   return (
-    <TableContainer>
-      <Table variant="striped" colorScheme="teal">
+    <TableContainer
+      display={"block"}
+      maxWidth="100%"
+      // size={{ lg: "lg", md: "md", sm: "sm", base: "sm" }}
+    >
+      <Table
+        variant="striped"
+        colorScheme="teal"
+        size={{ lg: "lg", md: "md", sm: "sm", base: "sm" }}
+      >
         <TableCaption>Imperial to metric conversion factors</TableCaption>
         <Thead>
           <Tr fontSize="xl" fontWeight="bold">

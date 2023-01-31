@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Box } from "@chakra-ui/react";
+import { GridItem, SimpleGrid } from "@chakra-ui/react";
 import CardComp from "../Components/CardComp";
 import { ProductContext } from "../Context/ProductContext/ProductContext";
 // import { NavLink } from "react-router-dom";
@@ -9,18 +9,22 @@ export const Products = () => {
   const productType = state.categoryProduct;
 
   return (
-    <Box
-      display="grid"
-      gap="10px"
-      p="10px"
-      gridTemplateColumns="repeat(4,1fr)"
-      gridTemplateRows="auto"
+    <SimpleGrid
+      gridTemplateColumns={{
+        lg: "repeat(4, 1fr)",
+        md: "repeat(3, 1fr)",
+        sm: "repeat(2, 1fr)",
+        base: "repeat(1, 1fr)",
+      }}
+      justifyContent="space-around"
+      gap={"10px"}
+      padding="10px"
     >
       {productType.map((ele) => (
-       
-          <CardComp  key={ele.id} item={ele} />
-        
+        <GridItem key={ele.id}  >
+          <CardComp item={ele} />
+        </GridItem>
       ))}
-    </Box>
+    </SimpleGrid>
   );
 };
