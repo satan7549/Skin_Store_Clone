@@ -14,11 +14,18 @@ export const AllRoutes = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/cart" element={<PrivateRoute><Cart /></PrivateRoute> } />
-        <Route path="/products" element={<Products />}/>
+        <Route
+          path="/cart"
+          element={
+            <PrivateRoute>
+              <Cart />
+            </PrivateRoute>
+          }
+        />
+        <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<SingleProduct />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>
-  )
+  );
 };
