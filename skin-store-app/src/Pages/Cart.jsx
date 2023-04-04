@@ -1,6 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../Context/Cart/CartContextProvider";
 import {
+  Button,
+  Box,
   Table,
   Thead,
   Tbody,
@@ -12,31 +14,43 @@ import {
   TableContainer,
   Image,
   Text,
-  Box,
   CloseButton,
+  ButtonGroup,
 } from "@chakra-ui/react";
-import QuantityBtn from "../Components/QuantyBtn";
 import { NavLink } from "react-router-dom";
-// import { CartCard } from "../Components/CartCard";
 
 export const Cart = () => {
-  const [totalQuantity, setTotalQuantity] = useState(0);
   const { state, dispatch } = useContext(CartContext);
+  const [uniqueCart, setUniqueCart] = useState([...new Set(state.cart)]);
+
   //next work we have to store data some ware because we find only one data heare
 
-  console.log("CartPage", state.cart);
+  // console.log("uniqueCart", uniqueCart);
 
-  const handleTotalCount = (val) => {
-    setTotalQuantity(totalQuantity + val);
-    //  dispatch({type:"INC_DEC_ITEM",payload:totalQuantity})
+  const handleRemove = (id) => {
+    dispatch({
+      type: "DELETE_ITEM_FROM_CART",
+      payload: id,
+    });
+  };
+
+  // useEffect(() => {
+  //   handleRemove();
+  // }, [handleRemove]);
+
+  const Dec = (ele) => {
+    dispatch({
+      type: "INC_DEC_ITEM",
+      payload: ele.id,
+    });
+  };
+
+  const Inc = (ele) => {
+    dispatch({ type: "ADD_TO_CART", payload: ele });
   };
 
   return (
-    <TableContainer
-      display={"block"}
-      maxWidth="100%"
-      // size={{ lg: "lg", md: "md", sm: "sm", base: "sm" }}
-    >
+    <TableContainer display={"block"} maxWidth="100%">
       <Table
         variant="striped"
         colorScheme="teal"
@@ -48,50 +62,110 @@ export const Cart = () => {
             <Th>Items</Th>
             <Th>Price</Th>
             <Th>QUANTITY</Th>
-            {/* <Th isNumeric>SUBTOTAL</Th> */}
-            <Th>DELETE</Th>
+            <Th isNumeric>SUBTOTAL</Th>
+            <Th>REMOVE</Th>
           </Tr>
         </Thead>
         <Tbody>
-          {state.cart &&
-            state.cart.map((ele) => {
+          {uniqueCart &&
+            uniqueCart.map((ele) => {
               return (
                 <Tr>
                   <Td>
                     <NavLink to={`/products/${ele.id}`}>
                       <Box
-                        width="200px"
+                        width="100%"
                         height="100%"
                         display="flex"
-                        alignItems="center"
-                        gap="10px"
+                        flexDirection={{ base: "column", md: "row" }}
+                        alignItems={{
+                          base: "center",
+                          md: "stretch",
+                          lg: "center",
+                        }}
+                        gap={{ base: "10px", md: "20px" }}
                       >
                         <Image
-                          width="100px"
-                          height="100px"
+                          width={{ base: "100%", md: "100px" }}
+                          height={{ base: "auto", md: "100px" }}
                           src={ele.image_link}
                           alt={ele.id}
                         />
-                        <Text as="h1" width="50px" textAlign="justify">
-                          {ele.name}
-                        </Text>
+                        <Box
+                          width="100%"
+                          textAlign={{ base: "center", md: "justify" }}
+                        >
+                          <Text as="h1">{ele.name}</Text>
+                        </Box>
                       </Box>
                     </NavLink>
                   </Td>
                   <Td>$ {ele.price}</Td>
                   <Td>
-                    <QuantityBtn tcount={(val) => handleTotalCount(val)} />
+                    {/* <Box
+                      display="flex"
+                      flexDir={{
+                        lg: "row",
+                        md: "row",
+                        sm: "column",
+                        base: "column",
+                      }}
+                      alignItems="center"
+                      justifyContent={{
+                        base: "space-between",
+                        md: "flex-start",
+                      }}
+                    > */}
+                    <ButtonGroup
+                      display="flex"
+                      flexDir={{
+                        lg: "row",
+                        md: "row",
+                        sm: "column",
+                        base: "column",
+                      }}
+                      alignItems="center"
+                      justifyContent={{
+                        base: "space-between",
+                        md: "flex-start",
+                      }}
+                    >
+                      <Button
+                        colorScheme="teal"
+                        variant="solid"
+                        disabled={
+                          state.cart.filter((el) => el.id === ele.id).length <=
+                          1
+                        }
+                        onClick={() => Dec(ele)}
+                      >
+                        -
+                      </Button>
+                      <Button>
+                        <Text as="h1" mx={{ base: "10px", md: "20px" }}>
+                          {state.cart.filter((el) => el.id === ele.id).length}
+                        </Text>
+                      </Button>
+                      <Button
+                        colorScheme="teal"
+                        variant="solid"
+                        onClick={() => Inc(ele)}
+                      >
+                        +
+                      </Button>
+                    </ButtonGroup>
+                    {/* </Box> */}
                   </Td>
-                  {/* <Td isNumeric></Td> */}
+                  <Td isNumeric>
+                    {state.cart
+                      .filter((el) => el.id === ele.id)
+                      .reduce((acc, el) => acc + Number(el.price), 0)
+                      .toFixed(2)}
+                  </Td>
                   <Td>
                     <CloseButton
                       size="md"
-                      onClick={() =>
-                        dispatch({
-                          type: "DELETE_ITEM_FROM_CART",
-                          payload: ele.id,
-                        })
-                      }
+                      onClick={() => handleRemove(ele.id)}
                     />
                   </Td>
                 </Tr>
@@ -100,15 +174,17 @@ export const Cart = () => {
         </Tbody>
         <Tfoot>
           <Tr>
-            {/* <Th>To convert</Th> */}
             <Th></Th>
+            <Th fontSize="20px" fontWeight="bold"></Th>
             <Th fontSize="20px" fontWeight="bold">
-              Total
+              <Text> Total Unit :- {state.cart.length}</Text>
             </Th>
-            <Th fontSize="20px" fontWeight="bold">
-              Total Unit {state.total_item}
+            <Th isNumeric fontSize="20px" fontWeight="bold">
+              TOTAL :-
+              {state.cart
+                .reduce((acc, el) => acc + Number(el.price), 0)
+                .toFixed(2)}
             </Th>
-            <Th isNumeric>SUBTOTAL</Th>
           </Tr>
         </Tfoot>
       </Table>
