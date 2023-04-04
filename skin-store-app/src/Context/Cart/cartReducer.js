@@ -17,11 +17,20 @@ const cartReducer = (state, action) => {
         cart: filter,
       };
     }
+
     case "INC_DEC_ITEM": {
-      // console.log("reduce", action.payload);
+      let count = 1;
+      let abc = [];
+      state.cart.forEach((el) => {
+        if (el.id === action.payload && count > 0) {
+          count--;
+        } else {
+          abc.push(el);
+        }
+      });
       return {
         ...state,
-        total_item: action.payload,
+        cart: abc,
       };
     }
     default: {
