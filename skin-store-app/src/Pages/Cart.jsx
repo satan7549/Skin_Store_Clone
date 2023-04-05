@@ -58,7 +58,7 @@ export const Cart = () => {
           {state.cart &&
             state.cart.map((ele) => {
               return (
-                <Tr>
+                <Tr key={ele.id} >
                   <Td>
                     <NavLink to={`/products/${ele.id}`}>
                       <Box
