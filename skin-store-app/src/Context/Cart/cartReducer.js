@@ -1,15 +1,14 @@
 const cartReducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_CART": {
-      //  console.log("cartreducer",action.payload)
       let CartData;
       CartData = action.payload;
-      // ={id,image_link,name,price,price_sign,description,category,brand,product_type}
       return {
         ...state,
-        cart: [...state.cart, CartData],
+        cart: [...state.cart, { ...CartData, qty: 1 }],
       };
     }
+
     case "DELETE_ITEM_FROM_CART": {
       let filter = state.cart.filter((ele) => ele.id !== action.payload);
       return {
@@ -18,21 +17,24 @@ const cartReducer = (state, action) => {
       };
     }
 
-    case "INC_DEC_ITEM": {
-      let count = 1;
-      let abc = [];
-      state.cart.forEach((el) => {
-        if (el.id === action.payload && count > 0) {
-          count--;
-        } else {
-          abc.push(el);
-        }
-      });
+    case "INCREMENT_QTY": {
       return {
         ...state,
-        cart: abc,
+        cart: state.cart.filter((el) =>
+          el.id === action.payload.id ? (el.qty = el.qty + 1) : el.qty
+        ),
       };
     }
+
+    case "DECREMENT_QTY": {
+      return {
+        ...state,
+        cart: state.cart.filter((el) =>
+          el.id === action.payload.id ? el.qty-- : el.qty
+        ),
+      };
+    }
+
     default: {
       return state;
     }
