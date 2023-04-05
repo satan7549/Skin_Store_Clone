@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { CartContext } from "../Context/Cart/CartContextProvider";
 import {
   Button,
@@ -21,11 +21,6 @@ import { NavLink } from "react-router-dom";
 
 export const Cart = () => {
   const { state, dispatch } = useContext(CartContext);
-  const [uniqueCart, setUniqueCart] = useState([...new Set(state.cart)]);
-
-  //next work we have to store data some ware because we find only one data heare
-
-  // console.log("uniqueCart", uniqueCart);
 
   const handleRemove = (id) => {
     dispatch({
@@ -34,19 +29,12 @@ export const Cart = () => {
     });
   };
 
-  // useEffect(() => {
-  //   handleRemove();
-  // }, [handleRemove]);
-
-  const Dec = (ele) => {
-    dispatch({
-      type: "INC_DEC_ITEM",
-      payload: ele.id,
-    });
+  const Dec = (id) => {
+    dispatch({ type: "DECREMENT_QTY", payload: { id } });
   };
 
-  const Inc = (ele) => {
-    dispatch({ type: "ADD_TO_CART", payload: ele });
+  const Inc = (id) => {
+    dispatch({ type: "INCREMENT_QTY", payload: { id } });
   };
 
   return (
@@ -67,8 +55,8 @@ export const Cart = () => {
           </Tr>
         </Thead>
         <Tbody>
-          {uniqueCart &&
-            uniqueCart.map((ele) => {
+          {state.cart &&
+            state.cart.map((ele) => {
               return (
                 <Tr>
                   <Td>
@@ -102,20 +90,6 @@ export const Cart = () => {
                   </Td>
                   <Td>$ {ele.price}</Td>
                   <Td>
-                    {/* <Box
-                      display="flex"
-                      flexDir={{
-                        lg: "row",
-                        md: "row",
-                        sm: "column",
-                        base: "column",
-                      }}
-                      alignItems="center"
-                      justifyContent={{
-                        base: "space-between",
-                        md: "flex-start",
-                      }}
-                    > */}
                     <ButtonGroup
                       display="flex"
                       flexDir={{
@@ -133,35 +107,26 @@ export const Cart = () => {
                       <Button
                         colorScheme="teal"
                         variant="solid"
-                        disabled={
-                          state.cart.filter((el) => el.id === ele.id).length <=
-                          1
-                        }
-                        onClick={() => Dec(ele)}
+                        disabled={ele.qty <= 1}
+                        onClick={() => Dec(ele.id)}
                       >
                         -
                       </Button>
                       <Button>
                         <Text as="h1" mx={{ base: "10px", md: "20px" }}>
-                          {state.cart.filter((el) => el.id === ele.id).length}
+                          {ele.qty}
                         </Text>
                       </Button>
                       <Button
                         colorScheme="teal"
                         variant="solid"
-                        onClick={() => Inc(ele)}
+                        onClick={() => Inc(ele.id)}
                       >
                         +
                       </Button>
                     </ButtonGroup>
-                    {/* </Box> */}
                   </Td>
-                  <Td isNumeric>
-                    {state.cart
-                      .filter((el) => el.id === ele.id)
-                      .reduce((acc, el) => acc + Number(el.price), 0)
-                      .toFixed(2)}
-                  </Td>
+                  <Td isNumeric>{ele.price * ele.qty}</Td>
                   <Td>
                     <CloseButton
                       size="md"
@@ -177,12 +142,15 @@ export const Cart = () => {
             <Th></Th>
             <Th fontSize="20px" fontWeight="bold"></Th>
             <Th fontSize="20px" fontWeight="bold">
-              <Text> Total Unit :- {state.cart.length}</Text>
+              <Text>
+                Total Unit :-{" "}
+                {state.cart.reduce((acc, el) => acc + Number(el.qty), 0)}
+              </Text>
             </Th>
             <Th isNumeric fontSize="20px" fontWeight="bold">
               TOTAL :-
               {state.cart
-                .reduce((acc, el) => acc + Number(el.price), 0)
+                .reduce((acc, el) => acc + Number(el.price * el.qty), 0)
                 .toFixed(2)}
             </Th>
           </Tr>

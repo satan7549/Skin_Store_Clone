@@ -11,7 +11,6 @@ const initialState = {
 };
 
 const ProductContextProvider = ({ children }) => {
-  // // console.log(reducer);
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (

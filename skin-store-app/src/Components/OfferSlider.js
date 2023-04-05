@@ -11,8 +11,6 @@ const offers = [
 ];
 
 export const OfferSlider = () => {
-  
-
   const BoxStyle = {
     height: "80px",
     display: "flex",

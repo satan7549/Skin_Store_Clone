@@ -13,8 +13,6 @@ import {
   AccordionIcon,
   Heading,
   Button,
-  SimpleGrid,
-  GridItem,
   useMediaQuery,
 } from "@chakra-ui/react";
 import { CartContext } from "../Context/Cart/CartContextProvider";
@@ -34,7 +32,6 @@ export const SingleProduct = () => {
   useEffect(() => {
     fetchSingleProductByID(id).then((res) => setData(res.data));
   }, [id]);
-  // console.log(data);
 
   return (
     <Box
@@ -44,10 +41,8 @@ export const SingleProduct = () => {
       justifyContent="space-around"
       bg="blackAlpha.100"
     >
-      {/* <Container mt="50px"  > */}
       {isLargerThan475 ? (
         <VStack
-          // spacing={8}
           justifyContent="space-around"
           shadow="md"
           direction="row"
@@ -136,16 +131,14 @@ export const SingleProduct = () => {
       )}
 
       <VStack>
-        <Accordion defaultIndex={[0]} allowMultiple>
+        <Accordion defaultIndex={[0]} allowMultiple >
           <AccordionItem>
-            <h2>
               <AccordionButton>
                 <Box fontSize="xl" as="span" flex="1" textAlign="center">
                   Decription
                 </Box>
                 <AccordionIcon />
               </AccordionButton>
-            </h2>
             <AccordionPanel pb={4}>{data.description}</AccordionPanel>
           </AccordionItem>
         </Accordion>
