@@ -20,7 +20,6 @@ export const DiscoverHolidayFun = () => {
         <span onClick={() => setCategory(New_Arrivals)}>New Arrivals</span>
         <span onClick={() => setCategory(Best_Sellers)}>Best Sellers</span>
       </div>
-      {/* className="cartItemsBox" */}
       <SimpleGrid  gridTemplateColumns={{lg:"repeat(4,1fr)",md:"repeat(2,1fr)",sm:"repeat(1,1fr)",base:"repeat(1,1fr)"}} alignItems="center" justifyContent="space-around" padding="10px" gap={"10px"}>
         {category.map((ele) => (
           <GridItem key={ele.id}  >

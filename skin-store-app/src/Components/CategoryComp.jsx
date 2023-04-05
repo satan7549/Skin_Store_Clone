@@ -1,13 +1,11 @@
-import { GridItem, Heading, SimpleGrid } from "@chakra-ui/react";
+import { Box, GridItem, Heading, SimpleGrid } from "@chakra-ui/react";
 import React from "react";
 import { c_avg } from "../data/CategoryData";
-import "../style/CategoryComp.css";
 
 const CategoryComp = () => {
   return (
-    <div className="maincategoryItem">
+    <Box >
       <Heading fontWeight="bolder">Shop By Category</Heading>
-      {/* className="categoryItem" */}
       <SimpleGrid
         gridTemplateColumns={{
           lg: "repeat(6, 1fr)",
@@ -28,7 +26,7 @@ const CategoryComp = () => {
           );
         })}
       </SimpleGrid>
-    </div>
+    </Box>
   );
 };
 

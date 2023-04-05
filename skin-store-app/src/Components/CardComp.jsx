@@ -50,7 +50,6 @@ const CardComp = ({ item }) => {
       </NavLink>
       <Divider />
       <CardFooter>
-        {/* <AddToCartBtn /> */}
         <Button
           width="100%"
           p="-1"
