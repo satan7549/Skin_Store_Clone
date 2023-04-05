@@ -75,7 +75,7 @@ export const Cart = () => {
                       >
                         <Image
                           width={{ base: "100%", md: "100px" }}
-                          height={{ base: "auto", md: "100px" }}
+                          height={{ base: "200px", md: "100px" }}
                           src={ele.image_link}
                           alt={ele.id}
                         />
@@ -103,6 +103,7 @@ export const Cart = () => {
                         base: "space-between",
                         md: "flex-start",
                       }}
+                      gap={"5px"}
                     >
                       <Button
                         colorScheme="teal"
@@ -112,7 +113,7 @@ export const Cart = () => {
                       >
                         -
                       </Button>
-                      <Button>
+                      <Button variant="solid">
                         <Text as="h1" mx={{ base: "10px", md: "20px" }}>
                           {ele.qty}
                         </Text>
