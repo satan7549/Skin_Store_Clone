@@ -26,7 +26,6 @@ export const Sidebar = () => {
   useEffect(() => {
     try {
       SearchByCategory(productType).then((res) => {
-        // console.log(res.data);
         const products = res.data;
         return dispatch({ type: "GET_CATEGORY_PRODUCTS", payload: products });
       });
@@ -82,18 +81,18 @@ export const Sidebar = () => {
                       borderBottom: "1px solid teal",
                     }}
                   >
-                    <NavLink to="/products" >
-                    <Box
-                      display="flex"
-                      flexDirection="row"
-                      justifyContent="space-between"
-                      alignItems="center"
-                    >
-                      <Text fontSize="lg" fontWeight="bold">
-                        {ele.c_name}
-                      </Text>
-                      <FontAwesomeIcon icon={faChevronRight} />
-                    </Box>
+                    <NavLink to="/products">
+                      <Box
+                        display="flex"
+                        flexDirection="row"
+                        justifyContent="space-between"
+                        alignItems="center"
+                      >
+                        <Text fontSize="lg" fontWeight="bold">
+                          {ele.c_name}
+                        </Text>
+                        <FontAwesomeIcon icon={faChevronRight} />
+                      </Box>
                     </NavLink>
                   </Box>
                 );

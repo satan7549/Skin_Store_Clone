@@ -13,8 +13,7 @@ const CompanyLogo = [
 
 const PartnerCompany = () => {
   return (
-    // className='PartnerCompany-main-div'
-    <Wrap spacing="30px" justify="center" >
+    <Wrap spacing="30px" justify="center">
       {CompanyLogo.map((ele, i) => (
         <WrapItem key={i}>
           <Center w="150px" h="80px">

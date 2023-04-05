@@ -11,7 +11,6 @@ const initialState = {
 };
 
 const AuthContextProvider = ({ children }) => {
-  // console.log(reducer);
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (

@@ -1,25 +1,20 @@
 import {
   Box,
   Button,
-  Flex,
   GridItem,
   Heading,
   Image,
   SimpleGrid,
   Text,
   VStack,
-  Wrap,
-  WrapItem,
 } from "@chakra-ui/react";
 import React from "react";
 import { trandingOffer } from "../data/DiscoverHolidayfun";
-import "../style/TrandingOffer.css";
 
 export const TrandingOffer = () => {
   return (
-    <div className="mainTrandingOffer">
+    <Box>
       <Heading fontWeight="bolder">Tranding Offer</Heading>
-      {/* <div className="trandingOffer"> */}
       <SimpleGrid
         gridTemplateColumns={{
           lg: "repeat(3, 1fr)",
@@ -49,7 +44,6 @@ export const TrandingOffer = () => {
           );
         })}
       </SimpleGrid>
-      {/* </div> */}
-    </div>
+    </Box>
   );
 };

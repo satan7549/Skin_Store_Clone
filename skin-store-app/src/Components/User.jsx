@@ -8,8 +8,6 @@ import { logoutSucessAction } from "../Context/Auth/Action";
 
 export const User = () => {
   const { state, dispatch } = useContext(AuthContext);
-  
-
 
   const Logout = () => {
     dispatch(logoutSucessAction());
@@ -19,7 +17,11 @@ export const User = () => {
     <>
       <Menu>
         <MenuButton>
-          <FontAwesomeIcon fontSize="2xl" color={state.isAuth? "green":"black"} icon={faUser} />
+          <FontAwesomeIcon
+            fontSize="2xl"
+            color={state.isAuth ? "green" : "black"}
+            icon={faUser}
+          />
         </MenuButton>
         <MenuList borderRadius="2px">
           {state.isAuth ? (

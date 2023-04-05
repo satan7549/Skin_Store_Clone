@@ -31,7 +31,6 @@ export const Searchbar = () => {
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
   const { isOpen, onOpen, onClose } = useDisclosure();
-  // const btnRef = React.useRef();
   const { state, dispatch } = useContext(ProductContext);
 
   useEffect(() => {
@@ -54,11 +53,9 @@ export const Searchbar = () => {
   return (
     <>
       <SearchIcon fontSize="xl" color="black" onClick={onOpen} />
-
       <Drawer placement="top" onClose={handleClose} isOpen={isOpen}>
         <DrawerOverlay />
         <DrawerContent mt="50px" p="10px">
-          {/* <DrawerHeader borderBottomWidth='1px'>Basic Drawer</DrawerHeader> */}
           <DrawerBody gap={2}>
             <InputGroup>
               <Input
