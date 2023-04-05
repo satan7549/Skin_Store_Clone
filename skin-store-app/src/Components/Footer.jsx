@@ -1,5 +1,4 @@
 import React from "react";
-// import { ReactNode } from "react";
 import {
   Box,
   Container,
@@ -51,8 +50,6 @@ const Footer = () => {
 
           <Stack align={"flex-start"}>
             <ListHeader>Install App</ListHeader>
-            {/* <AppStoreBadge />
-            <PlayStoreBadge /> */}
           </Stack>
         </SimpleGrid>
       </Container>

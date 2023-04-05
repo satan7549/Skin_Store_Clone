@@ -8,7 +8,7 @@ const HomeImageBottom = () => {
   return (
     <Box>
       {img.map((ele, i) => (
-        <Image key={i} src={ele} alt={i} />
+        <Image width={"full"} key={i} src={ele} alt={i} />
       ))}
     </Box>
   );
