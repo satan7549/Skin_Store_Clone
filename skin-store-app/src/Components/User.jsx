@@ -1,5 +1,12 @@
 import React, { useContext } from "react";
-import { Menu, MenuButton, MenuList, MenuItem, Button } from "@chakra-ui/react";
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  Button,
+  IconButton,
+} from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
@@ -16,13 +23,16 @@ export const User = () => {
   return (
     <>
       <Menu>
-        <MenuButton>
-          <FontAwesomeIcon
-            fontSize="2xl"
-            color={state.isAuth ? "green" : "black"}
-            icon={faUser}
-          />
-        </MenuButton>
+        <MenuButton
+          as={IconButton}
+          icon={
+            <FontAwesomeIcon
+              fontSize="2xl"
+              color={state.isAuth ? "green" : "black"}
+              icon={faUser}
+            />
+          }
+        />
         <MenuList borderRadius="2px">
           {state.isAuth ? (
             <MenuItem>
