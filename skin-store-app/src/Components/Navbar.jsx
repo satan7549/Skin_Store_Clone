@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Sidebar } from "./Sidebar";
 import { Searchbar } from "./SearchBar";
 import { Box, Flex, Badge } from "@chakra-ui/react";
