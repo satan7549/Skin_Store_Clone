@@ -9,6 +9,7 @@ This is E-commerce website. I try to implement my best possible knowledge to sho
  `Password:-sat1234`
 # Tech Stacks Used
 - React JS
+- Context API
 - Chakra UI
 - Javascript
 - CSS
