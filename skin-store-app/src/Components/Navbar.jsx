@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Sidebar } from "./Sidebar";
 import { Searchbar } from "./SearchBar";
 import { Box, Flex, Badge } from "@chakra-ui/react";
@@ -11,7 +11,7 @@ import { CartContext } from "../Context/Cart/CartContextProvider";
 export const Navbar = () => {
   const { state } = useContext(CartContext);
   return (
-    <Flex px={5} className="nav" >
+    <Flex px={5} className="nav">
       <Box display="flex" gap={5} justifyContent="space-around">
         <Sidebar />
         <Searchbar />

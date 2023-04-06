@@ -22,14 +22,18 @@ export const Sidebar = () => {
   const btnRef = React.useRef();
   const { dispatch } = useContext(ProductContext);
   const [productType, setProductTtype] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     try {
       SearchByCategory(productType).then((res) => {
         const products = res.data;
+        setLoading(false);
         return dispatch({ type: "GET_CATEGORY_PRODUCTS", payload: products });
       });
     } catch (error) {
+      setLoading(false);
       console.log("error:", error);
     }
   }, [productType]);
