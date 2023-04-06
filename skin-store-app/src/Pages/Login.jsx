@@ -41,9 +41,11 @@ export const Login = () => {
   };
 
   const handleLogin = () => {
+    dispatch({ type: "LOGIN_LOADIN" });
     getToken(loginDetails)
       .then((res) => {
-        console.log(res.data.token);
+        // console.log(res.data.token);
+        
         dispatch(loginSucessAction(res.data.token));
       })
       .catch(() => {
@@ -135,6 +137,8 @@ export const Login = () => {
         <FormControl>
           <Center>
             <Button
+              isLoading={state.isLoading}
+              loadingText="Submitting"
               width="full"
               p={4}
               borderRadius="none"
@@ -149,7 +153,6 @@ export const Login = () => {
               variant="outline"
               mt={4}
               onClick={handleLogin}
-              isLoading={state.isLoading}
             >
               SIGN IN
             </Button>

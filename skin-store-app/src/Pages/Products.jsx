@@ -7,7 +7,6 @@ import { ProductContext } from "../Context/ProductContext/ProductContext";
 export const Products = () => {
   const { state } = useContext(ProductContext);
   const productType = state.categoryProduct;
-
   return (
     <SimpleGrid
       gridTemplateColumns={{
@@ -21,7 +20,7 @@ export const Products = () => {
       padding="10px"
     >
       {productType.map((ele) => (
-        <GridItem key={ele.id}  >
+        <GridItem key={ele.id}>
           <CardComp item={ele} />
         </GridItem>
       ))}
