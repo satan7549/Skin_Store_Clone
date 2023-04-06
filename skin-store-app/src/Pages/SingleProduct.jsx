@@ -16,12 +16,14 @@ import {
   useMediaQuery,
 } from "@chakra-ui/react";
 import { CartContext } from "../Context/Cart/CartContextProvider";
+import Loading from "./Loading";
 
 export const SingleProduct = () => {
   const { dispatch } = useContext(CartContext);
   const { id } = useParams();
   const [data, setData] = useState({});
   const [click, setClick] = useState(0);
+  const [loading, setLoading] = useState(false);
   const [isLargerThan475] = useMediaQuery("(max-width: 475px)");
 
   const handleAddToCart = (item) => {
@@ -30,9 +32,14 @@ export const SingleProduct = () => {
   };
 
   useEffect(() => {
-    fetchSingleProductByID(id).then((res) => setData(res.data));
+    setLoading(true);
+    fetchSingleProductByID(id).then((res) => {
+      setData(res.data);
+      setLoading(false);
+    });
   }, [id]);
 
+  if (loading) return <Loading />;
   return (
     <Box
       h="full"
@@ -42,12 +49,7 @@ export const SingleProduct = () => {
       bg="blackAlpha.100"
     >
       {isLargerThan475 ? (
-        <VStack
-          justifyContent="space-around"
-          shadow="md"
-          direction="row"
-          p={4}
-        >
+        <VStack justifyContent="space-around" shadow="md" direction="row" p={4}>
           <Box p={5} shadow="md" borderWidth="1px">
             <Image src={data.image_link} alt={data.id} />
           </Box>
@@ -131,14 +133,14 @@ export const SingleProduct = () => {
       )}
 
       <VStack>
-        <Accordion defaultIndex={[0]} allowMultiple >
+        <Accordion defaultIndex={[0]} allowMultiple>
           <AccordionItem>
-              <AccordionButton>
-                <Box fontSize="xl" as="span" flex="1" textAlign="center">
-                  Decription
-                </Box>
-                <AccordionIcon />
-              </AccordionButton>
+            <AccordionButton>
+              <Box fontSize="xl" as="span" flex="1" textAlign="center">
+                Decription
+              </Box>
+              <AccordionIcon />
+            </AccordionButton>
             <AccordionPanel pb={4}>{data.description}</AccordionPanel>
           </AccordionItem>
         </Accordion>
