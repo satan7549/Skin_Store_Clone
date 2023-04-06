@@ -43,7 +43,7 @@ export const Searchbar = () => {
     } catch (error) {
       console.log("error:", error);
     }
-  }, [query, page]);
+  }, [page,query]);
 
   const handleClose = () => {
     onClose();
