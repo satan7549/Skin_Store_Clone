@@ -44,8 +44,6 @@ export const Login = () => {
     dispatch({ type: "LOGIN_LOADIN" });
     getToken(loginDetails)
       .then((res) => {
-        // console.log(res.data.token);
-        
         dispatch(loginSucessAction(res.data.token));
       })
       .catch(() => {
