@@ -5,6 +5,7 @@ export const CartContext = createContext();
 
 const initialState = {
   cart: [],
+  order: [],
 };
 
 const CartContextProvide = ({ children }) => {

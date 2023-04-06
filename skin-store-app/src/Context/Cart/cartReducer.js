@@ -34,6 +34,20 @@ const cartReducer = (state, action) => {
         ),
       };
     }
+    case "PLACE_ORDER": {
+      return {
+        ...state,
+        order: [...state.order, ...state.cart],
+        cart: [],
+      };
+    }
+    case "CANCEL_ORDER": {
+      let filter = state.order.filter((ele) => ele.id !== action.payload);
+      return {
+        ...state,
+        order: filter,
+      };
+    }
 
     default: {
       return state;
