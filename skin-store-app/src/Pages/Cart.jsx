@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../Context/Cart/CartContextProvider";
 import {
   Button,
@@ -16,11 +16,16 @@ import {
   Text,
   CloseButton,
   ButtonGroup,
+  useToast,
 } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
+import EmptyCart from "./EmptyCart";
 
 export const Cart = () => {
   const { state, dispatch } = useContext(CartContext);
+  const [total, setTotal] = useState(0);
+
+  const toast = useToast();
 
   const handleRemove = (id) => {
     dispatch({
@@ -37,6 +42,26 @@ export const Cart = () => {
     dispatch({ type: "INCREMENT_QTY", payload: { id } });
   };
 
+  const handleOrder = () => {
+    toast({
+      title: "Order Sucess",
+      description: `Your order amount is $ ${total} for you.`,
+      status: "success",
+      duration: 9000,
+      isClosable: true,
+    });
+    dispatch({ type: "PLACE_ORDER" });
+  };
+
+  useEffect(() => {
+    setTotal(
+      state.cart
+        .reduce((acc, el) => acc + Number(el.price * el.qty), 0)
+        .toFixed(2)
+    );
+  }, [state.cart]);
+
+  if (state.cart.length < 1) return <EmptyCart name="Cart" />;
   return (
     <TableContainer display={"block"} maxWidth="100%">
       <Table
@@ -58,7 +83,7 @@ export const Cart = () => {
           {state.cart &&
             state.cart.map((ele) => {
               return (
-                <Tr key={ele.id} >
+                <Tr key={ele.id}>
                   <Td>
                     <NavLink to={`/products/${ele.id}`}>
                       <Box
@@ -149,10 +174,12 @@ export const Cart = () => {
               </Text>
             </Th>
             <Th isNumeric fontSize="20px" fontWeight="bold">
-              TOTAL :-
-              {state.cart
-                .reduce((acc, el) => acc + Number(el.price * el.qty), 0)
-                .toFixed(2)}
+              TOTAL :-{total}
+            </Th>
+            <Th>
+              <Button colorScheme="teal" variant="solid" onClick={handleOrder}>
+                Place Oreder
+              </Button>
             </Th>
           </Tr>
         </Tfoot>
