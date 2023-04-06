@@ -7,7 +7,7 @@ const reducer = (state, action) => {
         isError: false,
         token: null,
       };
-    }
+    } 
     case "LOGIN_SUCESS": {
       return {
         isLoading: false,
