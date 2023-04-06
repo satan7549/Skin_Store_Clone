@@ -6,7 +6,8 @@ import { Home } from "../Pages/Home";
 import { Login } from "../Pages/Login";
 import { Products } from "../Pages/Products";
 import { SingleProduct } from "../Pages/SingleProduct";
-import PrivateRoute from "./PrivateRoute";
+// import PrivateRoute from "./PrivateRoute";
+import OrderPage from "../Pages/OrderPage";
 
 export const AllRoutes = () => {
   return (
@@ -16,9 +17,17 @@ export const AllRoutes = () => {
       <Route
         path="/cart"
         element={
-          <PrivateRoute>
+          // <PrivateRoute>
             <Cart />
-          </PrivateRoute>
+          // </PrivateRoute>
+        }
+      />
+      <Route
+        path="/order"
+        element={
+          // <PrivateRoute>
+            <OrderPage />
+          // </PrivateRoute>
         }
       />
       <Route path="/products" element={<Products />} />
