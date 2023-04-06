@@ -13,8 +13,8 @@ import {
   AlertDescription,
 } from "@chakra-ui/react";
 import axios from "axios";
-import { useContext, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { loginFailureAction, loginSucessAction } from "../Context/Auth/Action";
 import { AuthContext } from "../Context/Auth/AuthContextProvider";
 
@@ -34,6 +34,8 @@ const initState = {
 export const Login = () => {
   const { state, dispatch } = useContext(AuthContext);
   const [loginDetails, setLoginDetails] = useState(initState);
+  const { state: path } = useLocation();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -51,9 +53,17 @@ export const Login = () => {
       });
   };
 
-  if (state.isAuth) {
-    return <Navigate to="/cart" />;
-  }
+  useEffect(() => {
+    if (state.isAuth) {
+      console.log("path", path);
+      if (path.from) {
+        navigate(path.from, { replace: true });
+      } else {
+        navigate("/login");
+      }
+    }
+  }, [state.isAuth]);
+
   if (state.isError) {
     return (
       <Container
