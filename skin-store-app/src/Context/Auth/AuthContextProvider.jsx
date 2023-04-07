@@ -3,11 +3,13 @@ import reducer from "./Reducer";
 
 export const AuthContext = createContext();
 
+let token = localStorage.getItem("token");
+
 const initialState = {
   isLoading: false,
-  isAuth: false, 
+  isAuth: token ? true : false,
   isError: false,
-  token: null,
+  token: token || "",
 };
 
 const AuthContextProvider = ({ children }) => {

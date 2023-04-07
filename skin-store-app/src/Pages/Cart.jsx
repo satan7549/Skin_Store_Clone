@@ -47,7 +47,7 @@ export const Cart = () => {
       title: "Order Sucess",
       description: `Your order amount is $ ${total} for you.`,
       status: "success",
-      duration: 9000,
+      duration: 3000,
       isClosable: true,
     });
     dispatch({ type: "PLACE_ORDER" });

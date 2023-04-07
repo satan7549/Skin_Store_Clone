@@ -18,7 +18,7 @@ import {
   CloseButton,
   Button,
 } from "@chakra-ui/react";
-// import { Link } from "react-router-dom";
+
 import { CartContext } from "../Context/Cart/CartContextProvider";
 
 const OrderCancelModal = (id, name) => {

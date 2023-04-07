@@ -14,7 +14,7 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { loginFailureAction, loginSucessAction } from "../Context/Auth/Action";
 import { AuthContext } from "../Context/Auth/AuthContextProvider";
 
@@ -55,7 +55,6 @@ export const Login = () => {
 
   useEffect(() => {
     if (state.isAuth) {
-      console.log("path", path);
       if (path.from) {
         navigate(path.from, { replace: true });
       } else {

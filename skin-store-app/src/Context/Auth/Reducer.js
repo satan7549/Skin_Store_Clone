@@ -5,10 +5,11 @@ const reducer = (state, action) => {
         isLoading: true,
         isAuth: false,
         isError: false,
-        token: null,
+        token: "",
       };
     } 
     case "LOGIN_SUCESS": {
+      localStorage.setItem("token",action.payload);
       return {
         isLoading: false,
         isAuth: true,
@@ -21,15 +22,16 @@ const reducer = (state, action) => {
         isLoading: false,
         isAuth: false,
         isError: true,
-        token: null,
+        token: "",
       };
     }
     case "LOGOUT_SUCESS": {
+      localStorage.removeItem("token");
       return {
         isLoading: false,
         isAuth: false,
         isError: false,
-        token: null,
+        token: "",
       };
     }
     default: {
