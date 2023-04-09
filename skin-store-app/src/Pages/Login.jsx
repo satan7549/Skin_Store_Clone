@@ -55,10 +55,10 @@ export const Login = () => {
 
   useEffect(() => {
     if (state.isAuth) {
-      if (path.from) {
-        navigate(path.from, { replace: true });
+      if (path !== null) {
+        navigate(path, { replace: true });
       } else {
-        navigate("/login");
+        navigate("/");
       }
     }
   }, [state.isAuth]);
